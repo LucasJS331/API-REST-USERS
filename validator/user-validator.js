@@ -13,7 +13,7 @@ class UserValidator{
             }
         }
 
-        if(!validator.isEmail(email)){
+        if(email == undefined || !validator.isEmail(email)){
             return {
                 status: 400,
                 err: "email invalido!"

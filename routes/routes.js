@@ -5,7 +5,7 @@ const auth = require("../middleware/admin-midleware");
 
 //user routes
 
-router.post("/user", UserController.create);
+router.post("/user",auth, UserController.create);
 router.get("/users", auth, UserController.findAll);
 router.get("/user/:id", auth, UserController.findOne);
 router.put("/user/:id", auth, UserController.edit);
