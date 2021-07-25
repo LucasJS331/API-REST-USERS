@@ -1,13 +1,12 @@
-# API-REST-USERS
-API REST utilizada para fazer gestão de usuários
+# 🤵 API-REST-USERS 🤵
 
 Está é uma API REST utilizada para gestão de usuários cadastrados no banco de dados.
 
 ## POST/ auth
 
-Esse EndPoint é responsavel por autenticar o usuário.
+Essa EndPoint é responsavel por autenticar o usuário.
 
-### Parametros
+### Parametros:
 
 *Email: Email do usuário cadastrado do sistema
 
@@ -15,19 +14,19 @@ Esse EndPoint é responsavel por autenticar o usuário.
 
 ```
 {
-    "password": "123456",
-    "email": "@example.com"
+    "password": "example123456",
+    "email": "example@example.com"
 }   
 ```
 
-### Respostas
+### Respostas:
 
 ### Ok! 200
 
 Caso esta resposta acontença você ira receber o token.
 ```
 {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJAbHVjYXMuY29tIiwiaWF0IjoxNjEyMTEwNTg2LCJleHAiOjE2MTIyODMzODZ9.8exL7fMcmShBrthpK15sc9mnU6pVoFOWTvbN6fmTZJg"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haJwiOiJAbHVjYXMuY29tIiwiaWF0IjoxNjEyMTEwNTg2LCJleHAiOjE2MTIyODMzODZ9.8exL7fMcmShBrthpK15sc9mnU6pVoFOWTvbN6fmTZJg"
 }
 ```
 
@@ -43,37 +42,58 @@ Este erro ocorre com o problema de autentificação do usuário.
 
 ## GET/ users
 
-Esse EndPoint é responsavel por retornar todos os usuários cadastrados 
+Essa EndPoint é responsavel por retornar todos os usuários cadastrados 
 
-### Parametros
+### Parametros:
 
 Nenhum
 
-### Respostas
+### Respostas:
 
 ### Ok! 200
 
 Caso esta resposta acontença você ira receber a listagem de todos os usuários
 ```
-
+ "users": [
+        {
+            "id": 12,
+            "email": "admin@example.com",
+            "role": 0,
+            "name": "Lucas"
+        },
+        {
+            "id": 13,
+            "email": "example@example.com",
+            "role": 1,
+            "name": "Carlos"  
+        },
+        {
+            "id": 14,
+            "email": "wilson@example.com",
+            "role": 0,
+            "name": "Wilson"
+        }
 ```
-
-
 ## GET/ user/ID
 
-Esse EndPoint é responsavel por retornar um usuário especifico! 
+Essa EndPoint é responsavel por retornar um usuário especifico! 
 
-### Parametros
+### Parametros:
 
-Id: é preciso indicar o ID do game no final da endpoint.
+Id: é preciso indicar o ID no final da endpoint.
 
-### Respostas
+### Respostas:
 
 ### Ok! 200
 
-Caso esta resposta acontença você ira receber os dados do game escolhido.
+Caso esta resposta acontença você ira receber os dados do usuário escolhido.
 ```
-
+{
+    "id": 1,
+    "email": "adminAcc@exmaple.com",
+    "role": 1,
+    "name": "Lucas"
+}
 ```
 ### Bad request! 400
 
@@ -87,9 +107,9 @@ Acontece quando o ID for de um formato invalido.
 
 ## POST/ user
 
-Esse EndPoint é responsavel por registrar um novo usuário! 
+Essa EndPoint é responsavel por registrar um novo usuário! 
 
-### Parametros
+### Parametros:
 
 *name: nome do usuário
 
@@ -97,7 +117,7 @@ Esse EndPoint é responsavel por registrar um novo usuário!
 
 *email: email do usuário
 
-### Respostas
+### Respostas:
 
 ### Ok! 200
 
@@ -126,26 +146,26 @@ Acontece quando um dos parametros for invalido.
 
 ```
 
-## PUT/ game/ID
+## PUT/ user/ID
 
-Essa EndPoint é responsavel por editar um  game! 
+Essa EndPoint é responsavel por editar um usuário! 
 
-### Parametros
-*ID: ID do game selecionado
+### Parametros:
+*Id: é preciso indicar o ID do usuário no final da endpoint.
 
-title: novo titulo do game
+name: novo nome do usuário
 
-year: ano de lançamento do game
+password: nova senha do usuário
 
-price: preço atualizado do game
+email: novo email do usuário
 
-### Respostas
+### Respostas:
 
 ### Ok! 200
 
 Caso esta resposta acontença você ira receber um sinal de sucesso!
 ```
-{sucesso: "o game foi editado com sucesso!"}
+{sucesso: "o usuário foi editado com sucesso!"}
 ```
 
 ### Bad request! 400
@@ -167,21 +187,22 @@ Acontece quando ID for invalido.
 
 ```
 
-## DELETE/ game/ID
+## DELETE/ user/ID
 
-Esse EndPoint é responsavel por deletar um  game! 
+Essa EndPoint é responsavel por deletar um  usuário! 
 
-### Parametros
+### Parametros:
 
-*ID: ID do game selecionado
+*Id: é preciso indicar o ID do usuário no final da endpoint.
 
-### Respostas
+
+### Respostas:
 
 ### Ok! 200
 
 Caso esta resposta acontença você ira receber um sinal de sucesso!
 ```
-{sucesso: "o game foi editado com sucesso!"}
+{sucesso: "o usuário foi editado com sucesso!"}
 ```
 
 ### Bad request! 400
@@ -203,43 +224,6 @@ Acontece quando o ID for invalido.
 
 ```
 
-## POST/ user
-
-Esse EndPoint é responsavel por registrar um novo usuário no banco de dados! 
-
-### Parametros
-
-*email: email do usuário
-
-*password: senha do usuário
-
-### Respostas
-
-### Ok! 200
-
-Caso esta resposta acontença você ira receber um sinal de sucesso!
-```
-{sucesso: "o usuário foi cadastrado com sucesso!"}
-```
-
-### Bad request! 400
-
-Acontece quando um dos parametros for invalido.
-```
-{
-    "err": "parametros invalidos!"
-}
-
-```
-
-### Erro de autorização! 401
-
-```
-{
-    "err": "você precisa estar autenticado!"
-}
-
-```
 
 
 
