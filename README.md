@@ -1,4 +1,4 @@
-# 🤵 API-REST-USERS 🤵
+# 🐱‍👤 API-REST-USERS 🐱‍👤
 
 Está é uma API REST utilizada para gestão de usuários cadastrados no banco de dados.
 
@@ -74,6 +74,14 @@ Caso esta resposta acontença você ira receber a listagem de todos os usuários
             "name": "Wilson"
         }
 ```
+### Erro de autorização! 401
+
+```
+{
+    "err": "você precisa estar autenticado!"
+}
+
+```
 ## GET/ user/ID
 
 Essa EndPoint é responsavel por retornar um usuário especifico! 
@@ -101,6 +109,14 @@ Acontece quando o ID for de um formato invalido.
 ```
 {
     "err": "ID invalido!"
+}
+
+```
+### Erro de autorização! 401
+
+```
+{
+    "err": "você precisa estar autenticado!"
 }
 
 ```
@@ -202,7 +218,7 @@ Essa EndPoint é responsavel por deletar um  usuário!
 
 Caso esta resposta acontença você ira receber um sinal de sucesso!
 ```
-{sucesso: "o usuário foi editado com sucesso!"}
+{sucesso: "o usuário foi deletado com sucesso!"}
 ```
 
 ### Bad request! 400

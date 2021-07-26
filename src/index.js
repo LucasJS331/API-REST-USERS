@@ -1,4 +1,3 @@
-let bodyParser = require('body-parser');
 let express = require("express");
 let app = express();
 let router = require("../routes/routes");
